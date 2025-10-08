@@ -6,37 +6,33 @@ public class DungeonLayoutManager : MonoBehaviour
 {
     [SerializeField] private List<DungeonLayoutDefinition> standardRooms = new();
 }
-[CreateAssetMenu][Serializable]
+
+[CreateAssetMenu(menuName = "Dungeon/Dungeon Layout")]
 public class DungeonLayoutDefinition : ScriptableObject
 {
-    public List<DungeonRoomDefinition> rooms;
+    [SerializeReference]
+    public List<DungeonRoomDefinition> rooms = new();
 }
 
 [Serializable]
-public class DungeonRoomDefinition : MonoBehaviour
+public abstract class DungeonRoomDefinition
 {
-    public RoomType RoomType;
-    public DungeonRoom DungeonRoomComponent;
-
-    private RoomType currentRoomTypeComponent;
-    
-    
-    private void OnValidate()
-    {
-        if (RoomType == currentRoomTypeComponent) return;
-        
-        if (DungeonRoomComponent != null)
-            Destroy(DungeonRoomComponent);
-
-        var componentType = DungeonRoomDefinitionLibrary.GetDef(RoomType);
-        if (componentType != null)
-        {
-            DungeonRoomComponent = (DungeonRoom)gameObject.AddComponent(componentType);
-            currentRoomTypeComponent = RoomType;
-        }
-    }
+    public Vector2Int StartPosition;
+    public Vector2Int[] ShapeCoordinates;
 }
 
+[Serializable]
+public class StandardRoomDefinition : DungeonRoomDefinition
+{
+    //default
+}
+
+[Serializable]
+public class LockedRoomDefinition : DungeonRoomDefinition
+{
+    public bool StartsLocked = true;
+    public int RequiredKeyCount = 1;
+}
 
 public enum RoomType
 {

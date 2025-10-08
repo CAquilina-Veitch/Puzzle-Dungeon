@@ -13,4 +13,27 @@ MonoBehaviour:
   m_Name: New Dungeon Layout Definition
   m_EditorClassIdentifier: Assembly-CSharp::DungeonLayoutDefinition
   rooms:
-  - {fileID: 0}
+  - rid: 6973010579222954052
+  - rid: 6973010579222954053
+  - rid: -2
+  - rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6973010579222954052
+      type: {class: StandardRoomDefinition, ns: , asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 0, y: 0}
+        ShapeCoordinates:
+        - {x: 0, y: 0}
+        - {x: 0, y: 0}
+        - {x: 0, y: 0}
+    - rid: 6973010579222954053
+      type: {class: LockedRoomDefinition, ns: , asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 0, y: 0}
+        ShapeCoordinates: []
+        StartsLocked: 1
+        RequiredKeyCount: 1
