@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Dungeon;
 using UnityEngine;
 
 [Serializable]

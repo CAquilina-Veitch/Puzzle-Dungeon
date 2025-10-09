@@ -1,17 +1,18 @@
 using System;
+using Scripts.Dungeon;
 
 public static class DungeonRoomDefinitionLibrary
 {
-    public static Type GetDef(RoomType type)
+    public static DungeonRoomDefinition GetDef(RoomType type)
     {
         switch (type)
         {
             case RoomType.None:
                 return null;
             case RoomType.StandardRoom:
-                return typeof(StandardRoom);
+                return new StandardRoomDefinition();
             case RoomType.LockedRoom:
-                return typeof(LockedRoom);
+                return new LockedRoomDefinition();
             default:
                 return null;
         }
