@@ -15,7 +15,7 @@ namespace Scripts.Dungeon
     [Serializable]public class TileShape
     {
         public Vector2Int Position;
-        public Vector2Int[] ShapeCoordinates = {};
+        public Vector2Int[] ShapeCoordinates = { new(0, 0) };
 
         public bool IsInCoordinates(Vector2Int posCheck) => CoordinatesAsPosition.Contains(posCheck);
 
