@@ -6,6 +6,10 @@ namespace Scripts.Dungeon
 {
     public class DungeonLayoutManager : MonoBehaviour
     {
-        [SerializeField] private List<DungeonLayoutDefinition> standardRooms = new();
+        [SerializeField] private List<DungeonLayoutDefinition> DungeonDefinitions = new();
+        
+        
+        
+        
     }
 }

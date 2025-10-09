@@ -10,7 +10,7 @@ namespace Scripts.Dungeon
         private const float editorScale = 10;
         [SerializeField] private Color editorColour = Color.burlywood;
         [SerializeField] private RoomType roomType;
-        private RoomType lastSelectedRoomType = RoomType.None;
+        [SerializeField, HideInInspector] private RoomType lastSelectedRoomType = RoomType.None;
 
         [SerializeReference] private DungeonRoomDefinition definition = new StandardRoomDefinition();
 
@@ -40,6 +40,23 @@ namespace Scripts.Dungeon
 
         private void OnValidate()
         {
+            // Only create new definition if it's completely missing
+            if (definition == null)
+            {
+                if (roomType != RoomType.None) 
+                    UpdateRoomDefinition();
+                UpdateCachedCoordinates();
+                return;
+            }
+
+            // If Shape is null, just initialize it (don't recreate entire definition)
+            if (definition.Shape == null)
+            {
+                definition.Shape = new TileShape();
+                UpdateCachedCoordinates();
+                return;
+            }
+
             if (roomType != lastSelectedRoomType)
             {
                 UpdateRoomDefinition();
@@ -48,12 +65,17 @@ namespace Scripts.Dungeon
             }
 
             //sync StartPosition when transform moves and snap to grid
-            if (transform.position != lastPosition)
-            {
+            if (transform.position != lastPosition) 
                 SyncStartPositionAndSnap();
-            }
+            
+            Vector2Int expectedStartPos = new Vector2Int(
+                Mathf.RoundToInt(transform.position.x / editorScale),
+                Mathf.RoundToInt(transform.position.z / editorScale)
+            );
+            if (definition.StartPosition != expectedStartPos) 
+                SyncStartPositionAndSnap();
 
-            if (CoordinatesChanged()) 
+            if (CoordinatesChanged())
                 UpdateCachedCoordinates();
         }
 
@@ -101,8 +123,6 @@ namespace Scripts.Dungeon
 
         private void UpdateRoomDefinition()
         {
-            /*if(definition != null)
-                Destroy(definition);*/
             definition = DungeonRoomDefinitionLibrary.GetDef(roomType);
             lastSelectedRoomType = roomType;
             transform.name = roomType.ToString();

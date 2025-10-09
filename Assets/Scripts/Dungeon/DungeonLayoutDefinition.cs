@@ -8,7 +8,7 @@ namespace Scripts.Dungeon
 {
     public class DungeonLayoutDefinition : MonoBehaviour
     {
-        [SerializeReference]
+        [SerializeField]
         public DungeonRoomDefiner[] rooms = {};
         [SerializeField,HideInInspector] private List<DungeonRoomDefiner> lastRooms = new List<DungeonRoomDefiner>();
 
@@ -35,7 +35,7 @@ namespace Scripts.Dungeon
             {
                 var removedRooms = lastRooms.Except(rooms).ToList();
                 foreach (var room in removedRooms)
-                    Observable.TimerFrame(1).Subscribe(_ => DestroyImmediate(room.gameObject)).AddTo(this);
+                    DestroyImmediate(room.gameObject);
             }
             
             lastRooms = rooms.ToList();
