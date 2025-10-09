@@ -35,7 +35,7 @@ namespace Scripts.Dungeon
             {
                 var removedRooms = lastRooms.Except(rooms).ToList();
                 foreach (var room in removedRooms)
-                    Observable.TimerFrame(1).Subscribe(_=>DestroyImmediate(room.gameObject)).AddTo(this);
+                    Observable.TimerFrame(1).Subscribe(_ => DestroyImmediate(room.gameObject)).AddTo(this);
             }
             
             lastRooms = rooms.ToList();

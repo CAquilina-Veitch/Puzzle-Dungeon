@@ -1,60 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &425831186941651916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6120032699187816258}
-  - component: {fileID: 5417606187071002749}
-  m_Layer: 0
-  m_Name: StandardRoom
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6120032699187816258
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425831186941651916}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 776129101172298204}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5417606187071002749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425831186941651916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
-  roomType: 1
-  definition:
-    rid: 1760448067762126991
-  references:
-    version: 2
-    RefIds:
-    - rid: 1760448067762126991
-      type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
-      data:
-        StartPosition: {x: 0, y: 0}
-        ShapeCoordinates: []
 --- !u!1 &1154955101816681013
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776129101172298204}
-  - component: {fileID: 8496693296295327859}
   - component: {fileID: 374655443818862626}
   m_Layer: 0
   m_Name: DungeonDefinitionTest
@@ -86,35 +30,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6120032699187816258}
-  - {fileID: 983165474133461473}
+  - {fileID: 1958752039882440266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8496693296295327859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154955101816681013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
-  roomType: 0
-  definition:
-    rid: 1760448067762126971
-  references:
-    version: 2
-    RefIds:
-    - rid: 1760448067762126971
-      type: {class: LockedRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
-      data:
-        StartPosition: {x: 0, y: 0}
-        ShapeCoordinates: []
-        StartsLocked: 1
-        RequiredKeyCount: 1
 --- !u!114 &374655443818862626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,12 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonLayoutDefinition
   rooms:
-  - {fileID: 5417606187071002749}
-  - {fileID: 6301253528972903231}
+  - {fileID: 5930594051835997152}
   lastRooms:
-  - {fileID: 5417606187071002749}
-  - {fileID: 6301253528972903231}
---- !u!1 &5077539873105056098
+  - {fileID: 5930594051835997152}
+--- !u!1 &6788925746900058374
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,22 +57,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 983165474133461473}
-  - component: {fileID: 6301253528972903231}
+  - component: {fileID: 1958752039882440266}
+  - component: {fileID: 5930594051835997152}
   m_Layer: 0
-  m_Name: None
+  m_Name: StandardRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &983165474133461473
+--- !u!4 &1958752039882440266
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077539873105056098}
+  m_GameObject: {fileID: 6788925746900058374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -165,23 +81,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 776129101172298204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6301253528972903231
+--- !u!114 &5930594051835997152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077539873105056098}
+  m_GameObject: {fileID: 6788925746900058374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
-  roomType: 0
+  editorColour: {r: 0.7204578, g: 0.7344966, b: 0.12615192, a: 1}
+  roomType: 1
   definition:
-    rid: -2
+    rid: 1760448067762127134
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 1760448067762127134
+      type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 0, y: 0}
+        Shape:
+          _position: {x: 0, y: 0}
+          _shapeCoordinates: []

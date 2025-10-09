@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &54102239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54102241}
+  - component: {fileID: 54102240}
+  m_Layer: 0
+  m_Name: StandardRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &54102240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54102239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
+  editorColour: {r: 0.93125916, g: 0.9750308, b: 0.28994232, a: 1}
+  roomType: 1
+  definition:
+    rid: 1760448070530367556
+  references:
+    version: 2
+    RefIds:
+    - rid: 1760448070530367556
+      type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 4, y: -5}
+        Shape:
+          Position: {x: 4, y: -5}
+          ShapeCoordinates:
+          - {x: 0, y: 0}
+          - {x: 1, y: 0}
+--- !u!4 &54102241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54102239}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40, y: 0, z: -50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6956555731613501953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134241228
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +348,68 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &360853425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360853427}
+  - component: {fileID: 360853426}
+  m_Layer: 0
+  m_Name: StandardRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &360853426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360853425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
+  editorColour: {r: 0.99135077, g: 0.27041465, b: 0.625334, a: 1}
+  roomType: 1
+  definition:
+    rid: 1760448070530367491
+  references:
+    version: 2
+    RefIds:
+    - rid: 1760448070530367491
+      type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 4, y: -4}
+        Shape:
+          Position: {x: 4, y: -4}
+          ShapeCoordinates:
+          - {x: 0, y: 0}
+          - {x: 1, y: 0}
+          - {x: 2, y: 0}
+          - {x: 2, y: 1}
+--- !u!4 &360853427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360853425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40, y: 0, z: -40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6956555731613501953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,14 +436,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -415,6 +537,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &808477781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808477782}
+  m_Layer: 0
+  m_Name: New Game Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808477782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808477781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +663,801 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   standardRooms:
   - {fileID: 11400000, guid: 21ecf3290e170924e8a438b1c2ffa41c, type: 2}
+--- !u!1 &1724226661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724226662}
+  m_Layer: 0
+  m_Name: New Game Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724226662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724226661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1737577849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737577850}
+  m_Layer: 0
+  m_Name: New Game Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737577850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737577849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1932769041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932769043}
+  - component: {fileID: 1932769042}
+  m_Layer: 0
+  m_Name: LockedRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1932769042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932769041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
+  editorColour: {r: 0.3254902, g: 0.96544874, b: 0.2470789, a: 1}
+  roomType: 2
+  definition:
+    rid: 1760448070530367558
+  references:
+    version: 2
+    RefIds:
+    - rid: 1760448070530367558
+      type: {class: LockedRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 5, y: -3}
+        Shape:
+          Position: {x: 5, y: -3}
+          ShapeCoordinates:
+          - {x: 0, y: 0}
+        StartsLocked: 1
+        RequiredKeyCount: 1
+--- !u!4 &1932769043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932769041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50, y: 0, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6956555731613501953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6956555731613501952
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'rooms.Array.data[0]'
+      value: 
+      objectReference: {fileID: 360853426}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'rooms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 54102240}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'rooms.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1932769042}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: lastRooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'lastRooms.Array.data[0]'
+      value: 
+      objectReference: {fileID: 360853426}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'lastRooms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 54102240}
+    - target: {fileID: 374655443818862626, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'lastRooms.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1932769042}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154955101816681013, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: m_Name
+      value: GameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762127008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762127008]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127008].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127008].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127008].Shape.Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127008].Shape.Position.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798047797914035860, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127008].Shape.ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762126981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126977]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126981]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126981].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126977].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126977].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126981].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126981].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126981].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126977].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642678132671241727, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126981].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762126993
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126985]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126989]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126993]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126989].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126985].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126985].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126989].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126989].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126989].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].Shape.Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].Shape.Position.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126985].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126989].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417606187071002749, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126993].Shape.ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762127103
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762127103]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127103].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127103].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127103].Shape.Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127103].Shape.Position.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930594051835997152, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127103].Shape.ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762126964
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126913]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126917]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126921]'
+      value: Assembly-CSharp Scripts.Dungeon.StandardRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126925]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126928]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126932]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126935]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126938]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126941]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126948]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126950]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126955]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126958]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126961]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762126964]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126917].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126925].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126928].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126932].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126935].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126938].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126941].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126948].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126950].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126955].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126958].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126961].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126913].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126913].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126917].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126917].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126921].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126921].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126925].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126925].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126928].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126928].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126932].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126932].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126935].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126935].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126938].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126938].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126941].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126941].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126948].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126948].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126950].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126950].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126955].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126955].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126958].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126958].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126961].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126961].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126917].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126925].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126928].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126932].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126935].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126938].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126941].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126948].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126950].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126955].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126958].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126961].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].Shape.Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].Shape.Position.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126913].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126917].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126921].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126925].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126928].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126932].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126935].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126938].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126941].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126948].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126950].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126955].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126958].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126961].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496693296295327859, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762126964].Shape.ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: definition
+      value: 1760448067762127016
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: 'managedReferences[1760448067762127016]'
+      value: Assembly-CSharp Scripts.Dungeon.LockedRoomDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].StartsLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].StartPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].StartPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].RequiredKeyCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].Shape.Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].Shape.Position.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136492744729462271, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      propertyPath: managedReferences[1760448067762127016].Shape.ShapeCoordinates.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 6788925746900058374, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 360853427}
+    - targetCorrespondingSourceObject: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 54102241}
+    - targetCorrespondingSourceObject: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1932769043}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+--- !u!4 &6956555731613501953 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 776129101172298204, guid: 365d85aad0ee76a44826305c21232ae3, type: 3}
+  m_PrefabInstance: {fileID: 6956555731613501952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -518,3 +1466,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 134241229}
+  - {fileID: 6956555731613501952}
+  - {fileID: 1724226662}
+  - {fileID: 808477782}
+  - {fileID: 1737577850}
