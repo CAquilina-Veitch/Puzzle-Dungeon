@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5844752536837415719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7554815428636274359}
+  - component: {fileID: 6625559433407840177}
+  m_Layer: 0
+  m_Name: StandardRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7554815428636274359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844752536837415719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: -90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8242350375503011851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6625559433407840177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844752536837415719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
+  editorColour: {r: 0.010296464, g: 0.68356216, b: 0.3933323, a: 1}
+  roomType: 1
+  lastSelectedRoomType: 1
+  definition:
+    rid: 6973010599863386238
+  references:
+    version: 2
+    RefIds:
+    - rid: 6973010599863386238
+      type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 1, y: -9}
+        Shape:
+          Position: {x: 1, y: -9}
+          ShapeCoordinates:
+          - {x: 0, y: 0}
+          - {x: 1, y: 0}
+          - {x: 1, y: 1}
+--- !u!1 &6536945944312138884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8080231015051130958}
+  - component: {fileID: 9099695560873192519}
+  m_Layer: 0
+  m_Name: LockedRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8080231015051130958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536945944312138884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8242350375503011851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9099695560873192519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536945944312138884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4210fa040d0b47329204ddabd16d3fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonRoomDefiner
+  editorColour: {r: 0.10615182, g: 0.4142347, b: 0.7081034, a: 1}
+  roomType: 2
+  lastSelectedRoomType: 2
+  definition:
+    rid: 6973010599863386194
+  references:
+    version: 2
+    RefIds:
+    - rid: 6973010599863386194
+      type: {class: LockedRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
+      data:
+        StartPosition: {x: 0, y: -2}
+        Shape:
+          Position: {x: 0, y: -2}
+          ShapeCoordinates:
+          - {x: 0, y: 1}
+          - {x: 0, y: 0}
+        StartsLocked: 1
+        RequiredKeyCount: 1
+--- !u!1 &8246668635713622180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8242350375503011851}
+  - component: {fileID: 4922787188681616643}
+  m_Layer: 0
+  m_Name: Test Dungeon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8242350375503011851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246668635713622180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7554815428636274359}
+  - {fileID: 8080231015051130958}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4922787188681616643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246668635713622180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de8a4779c4e4368a314db60d78a7dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonLayoutDefinition
+  rooms:
+  - {fileID: 6625559433407840177}
+  - {fileID: 9099695560873192519}
+  lastRooms:
+  - {fileID: 6625559433407840177}
+  - {fileID: 9099695560873192519}

@@ -6,16 +6,25 @@ using UnityEngine;
 
 namespace Scripts.Dungeon
 {
-    public class DungeonLayoutDefinition : MonoBehaviour
+    public class DungeonDefinition : MonoBehaviour
     {
-        [SerializeField]
-        public DungeonRoomDefiner[] rooms = {};
-        [SerializeField,HideInInspector] private List<DungeonRoomDefiner> lastRooms = new List<DungeonRoomDefiner>();
+        public DungeonID DungeonID => dungeonID;
+        private DungeonID dungeonID;
+        
+        [SerializeField] public DungeonRoomDefiner[] rooms = {};
+        [SerializeField, HideInInspector] private List<DungeonRoomDefiner> lastRooms = new();
 
         private int numRooms;
+        
+        #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (numRooms == rooms.Length) return;
+            if (numRooms != rooms.Length) 
+                HandleRoomDifferences();
+        }
+
+        private void HandleRoomDifferences()
+        {
             if (rooms.Length > numRooms)
             {
                 var seen = new HashSet<DungeonRoomDefiner>();
@@ -41,5 +50,8 @@ namespace Scripts.Dungeon
             lastRooms = rooms.ToList();
             numRooms = rooms.Length;
         }
+        
+        
+        #endif
     }
 }

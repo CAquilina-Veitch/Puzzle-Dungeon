@@ -38,6 +38,7 @@ namespace Scripts.Dungeon
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             // Only create new definition if it's completely missing
@@ -173,5 +174,6 @@ namespace Scripts.Dungeon
                 Gizmos.DrawCube(position, size);
             }
         }
+#endif
     }
 }
