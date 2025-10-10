@@ -43,11 +43,12 @@ namespace Scripts.Dungeon
             }
 
             currentTestingDungeonID = testingDungeonID = id;
+            currentDungeon.Value = currentDungeonDefinition;
         }
 
         public void LoadDungeon(DungeonID newID)
         {
-            if (currentDungeon.CurrentValue.DungeonID != DungeonID.None && newID != DungeonID.None) 
+            if (currentDungeon.CurrentValue != null && currentDungeon.CurrentValue.DungeonID != DungeonID.None && newID != DungeonID.None)
                 Debug.LogWarning($"Tried to load new dungeon {newID} while {currentDungeon.CurrentValue} is still loaded. ");
             
             if (newID is DungeonID.None || dungeonDefinitions.Any(def => def.DungeonID == newID))

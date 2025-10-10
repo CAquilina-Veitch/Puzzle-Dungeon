@@ -13,6 +13,7 @@ namespace Scripts.Dungeon
         [SerializeField] private RoomType roomType;
         [SerializeField, HideInInspector] private RoomType lastSelectedRoomType = RoomType.None;
 
+        public Color EditorColour => editorColour;
         public DungeonRoomDefinition Definition => definition;
         [SerializeReference] private DungeonRoomDefinition definition = new StandardRoomDefinition();
         [SerializeField, HideInInspector] private Vector3 lastPosition;
@@ -87,7 +88,7 @@ namespace Scripts.Dungeon
 
             //snap transform position to grid
             Vector3 snappedPosition = new Vector3(
-                Mathf.Round(transform.position.x / editorScale) * editorScale,
+                Mathf.Round(transform.position.x / editorScale) * editorScale, 
                 0,
                 Mathf.Round(transform.position.z / editorScale) * editorScale
             );
