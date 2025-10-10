@@ -7,15 +7,32 @@ namespace Scripts.Dungeon
     [Serializable]
     public abstract class DungeonRoomDefinition
     {
-        public void UpdateShapePosition() => Shape.Position = StartPosition;
-        public Vector2Int StartPosition;
-        public TileShape Shape = new();
+        public void SetStartPosition(Vector2Int newStartPosition) => startPosition = newStartPosition;
+        public Vector2Int StartPosition => startPosition;
+        [SerializeField] private Vector2Int startPosition;
+        public void SetShape(TileShape newShape) => shape = newShape;
+        public void UpdateShapePosition() => Shape.SetPosition(StartPosition);
+        public TileShape Shape => shape;
+        [SerializeField] private TileShape shape = new();
     }
 
     [Serializable]public class TileShape
     {
-        public Vector2Int Position;
-        public Vector2Int[] ShapeCoordinates = { new(0, 0) };
+        public void SetPosition(Vector2Int newPosition) => position = newPosition;
+        public Vector2Int Position => position;
+        [SerializeField] private Vector2Int position;
+        public Vector2Int[] ShapeCoordinates => shapeCoordinates;
+        [SerializeField] private Vector2Int[] shapeCoordinates = { new(0, 0) };
+
+        public TileShape()
+        {
+        }
+
+        public TileShape(Vector2Int position, Vector2Int[] shapeCoordinates)
+        {
+            this.position = position;
+            this.shapeCoordinates = shapeCoordinates;
+        }
 
         public bool IsInCoordinates(Vector2Int posCheck) => CoordinatesAsPosition.Contains(posCheck);
 

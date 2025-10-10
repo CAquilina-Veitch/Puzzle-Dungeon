@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5844752536837415719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: -90}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,13 +55,17 @@ MonoBehaviour:
     - rid: 6973010599863386238
       type: {class: StandardRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
       data:
-        StartPosition: {x: 1, y: -9}
+        StartPosition: {x: 0, y: 0}
         Shape:
-          Position: {x: 1, y: -9}
+          Position: {x: 0, y: 0}
           ShapeCoordinates:
           - {x: 0, y: 0}
           - {x: 1, y: 0}
           - {x: 1, y: 1}
+          - {x: 2, y: 0}
+          - {x: 3, y: 0}
+          - {x: 4, y: 0}
+          - {x: 5, y: 0}
 --- !u!1 &6536945944312138884
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 6536945944312138884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 40, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,9 +121,9 @@ MonoBehaviour:
     - rid: 6973010599863386194
       type: {class: LockedRoomDefinition, ns: Scripts.Dungeon, asm: Assembly-CSharp}
       data:
-        StartPosition: {x: 0, y: -2}
+        StartPosition: {x: 4, y: 1}
         Shape:
-          Position: {x: 0, y: -2}
+          Position: {x: 4, y: 1}
           ShapeCoordinates:
           - {x: 0, y: 1}
           - {x: 0, y: 0}
@@ -136,7 +140,7 @@ GameObject:
   - component: {fileID: 8242350375503011851}
   - component: {fileID: 4922787188681616643}
   m_Layer: 0
-  m_Name: Test Dungeon
+  m_Name: Test Dungeon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de8a4779c4e4368a314db60d78a7dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Dungeon.DungeonLayoutDefinition
+  dungeonID: 2
+  bounds: {x: 6, y: 6}
   rooms:
   - {fileID: 6625559433407840177}
   - {fileID: 9099695560873192519}

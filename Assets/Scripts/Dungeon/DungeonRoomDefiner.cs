@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,12 +13,12 @@ namespace Scripts.Dungeon
         [SerializeField] private RoomType roomType;
         [SerializeField, HideInInspector] private RoomType lastSelectedRoomType = RoomType.None;
 
+        public DungeonRoomDefinition Definition => definition;
         [SerializeReference] private DungeonRoomDefinition definition = new StandardRoomDefinition();
-
-        private Vector3 lastPosition;
-        private Vector2Int[] cachedCoordinates;
-        private Vector2Int[] lastShapeCoordinates;
-        private Vector2Int lastStartPosition;
+        [SerializeField, HideInInspector] private Vector3 lastPosition;
+        [SerializeField, HideInInspector] private Vector2Int lastStartPosition;
+        [SerializeField, HideInInspector] private Vector2Int[] cachedCoordinates;
+        [SerializeField, HideInInspector] private Vector2Int[] lastShapeCoordinates;
 
         private void Reset()
         {
@@ -53,7 +54,7 @@ namespace Scripts.Dungeon
             // If Shape is null, just initialize it (don't recreate entire definition)
             if (definition.Shape == null)
             {
-                definition.Shape = new TileShape();
+                definition.SetShape(new TileShape());
                 UpdateCachedCoordinates();
                 return;
             }
@@ -93,10 +94,10 @@ namespace Scripts.Dungeon
 
             transform.position = snappedPosition;
 
-            definition.StartPosition = new Vector2Int(
+            definition.SetStartPosition(new Vector2Int(
                 Mathf.RoundToInt(snappedPosition.x / editorScale),
                 Mathf.RoundToInt(snappedPosition.z / editorScale)
-            );
+            ));
         }
 
         private bool CoordinatesChanged()
@@ -124,9 +125,26 @@ namespace Scripts.Dungeon
 
         private void UpdateRoomDefinition()
         {
+            //old data
+            Vector2Int oldStartPosition = definition?.StartPosition ?? Vector2Int.zero;
+            TileShape oldShape = definition?.Shape;
+
+            //get new definition
             definition = DungeonRoomDefinitionLibrary.GetDef(roomType);
             lastSelectedRoomType = roomType;
             transform.name = roomType.ToString();
+
+            //copy preserved data to new definition
+            if (definition != null)
+            {
+                definition.SetStartPosition(oldStartPosition);
+                if (oldShape != null)
+                    definition
+                        .SetShape(
+                            new TileShape(
+                                position: oldShape.Position, 
+                                shapeCoordinates: oldShape.ShapeCoordinates?.ToArray() ?? new[] { new Vector2Int(0, 0) }));
+            }
         }
 
         private void UpdateCachedCoordinates()
