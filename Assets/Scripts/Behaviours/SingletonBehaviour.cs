@@ -45,10 +45,7 @@ namespace Scripts.Behaviours
             
             _instance = this as T;
             
-            if (DontDestroyOnLoad && transform.parent == null)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
+            if (DontDestroyOnLoad && transform.parent == null) DontDestroyOnLoad(gameObject);
             
             OnAwake();
         }

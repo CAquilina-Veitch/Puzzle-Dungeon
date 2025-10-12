@@ -12,13 +12,20 @@ namespace Scripts.Dungeon
         [SerializeField] private Vector2Int startPosition;
         public void SetShape(TileShape newShape) => shape = newShape;
         public void UpdateShapePosition() => Shape.SetPosition(StartPosition);
+        public void SetPosition(Vector2Int newPosition) => Shape.SetPosition(newPosition);
+        
         public TileShape Shape => shape;
         [SerializeField] private TileShape shape = new();
     }
 
     [Serializable]public class TileShape
     {
-        public void SetPosition(Vector2Int newPosition) => position = newPosition;
+        public void SetPosition(Vector2Int newPosition)
+        {
+            Debug.LogWarning($"new pos {newPosition}");
+            position = newPosition;
+        }
+
         public Vector2Int Position => position;
         [SerializeField] private Vector2Int position;
         public Vector2Int[] ShapeCoordinates => shapeCoordinates;
@@ -26,6 +33,7 @@ namespace Scripts.Dungeon
 
         public TileShape()
         {
+            
         }
 
         public TileShape(Vector2Int position, Vector2Int[] shapeCoordinates)
@@ -36,7 +44,7 @@ namespace Scripts.Dungeon
 
         public bool IsInCoordinates(Vector2Int posCheck) => CoordinatesAsPosition.Contains(posCheck);
 
-        public Vector2Int[] CoordinatesAsPosition => ShapeCoordinates.Select(shapeCoordinate => shapeCoordinate + Position).ToArray();
+        public Vector2Int[] CoordinatesAsPosition => ShapeCoordinates.Select(shapeCoordinate => shapeCoordinate + Position ).ToArray();
     }
     
     [Serializable]

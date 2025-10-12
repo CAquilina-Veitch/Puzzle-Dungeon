@@ -1,15 +1,13 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
 using R3;
 using Runtime.Extensions;
+using Scripts.Behaviours;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Scripts.Dungeon
 {
-    public class DungeonMapUIController : MonoBehaviour
+    public class DungeonMapUIController : SingletonBehaviour<DungeonMapUIController>
     {
         [SerializeField] private RectTransform tilesContainer;
         public RectTransform BoundsBackground => boundsBackground;
@@ -33,7 +31,7 @@ namespace Scripts.Dungeon
         private DraggableRoomUI currentlyDraggedRoom;
 
 
-        private void Awake() =>
+        protected override void OnAwake() =>
             DungeonLayoutManager.Instance.CurrentDungeon.Subscribe(OnCurrentDungeonChanged).AddTo(this);
 
         private void OnCurrentDungeonChanged(DungeonDefinition dungeon)
@@ -126,28 +124,47 @@ namespace Scripts.Dungeon
             var mouseAsGrid = CalculateGridPosition(mousePosition);
             mouseAsGrid -= mouseOffset;
 
-            var diff = mouseAsGrid - currentlyDraggedRoom.CurrentGridPosition;
+
             var newPosIsValid = IsValidRoomPosition(currentlyDraggedRoom, mouseAsGrid);
 
-            Debug.Log($"{diff}, {newPosIsValid}");
             if (newPosIsValid)
             {
+                if (mouseAsGrid == currentlyDraggedRoom.CurrentGridPosition) return;
 
+                LerpPos(mouseAsGrid);
+                currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(mouseAsGrid);
             }
+
+            else
+            {
+                var adjacentPos = currentlyDraggedRoom.CurrentGridPosition + (mouseAsGrid - currentlyDraggedRoom.CurrentGridPosition).Normalised();
+                var adjacentTileIsValid = IsValidRoomPosition(currentlyDraggedRoom, adjacentPos);
+                
+                if (adjacentTileIsValid)
+                {
+                    if (adjacentPos == currentlyDraggedRoom.CurrentGridPosition) return;
+
+                    LerpPos(adjacentPos);
+                    currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(adjacentPos);
+                }
+            }
+            
         }
 
-        public void LerpPos(Vector2Int newTilePos)
+        private void LerpPos(Vector2Int newTilePos)
         {
             var newPos = GridToUIPosition(newTilePos);
-            currentlyDraggedRoom.RectTransform.DOMove(newPos, 0);
+            
+            currentlyDraggedRoom.RectTransform.anchoredPosition = newPos;
+            
         }
 
-    public void OnRoomMouseUp()
+        public void OnRoomMouseUp()
         {
             
         }
 
-        public bool IsValidRoomPosition(DraggableRoomUI room, Vector2Int newStartPosition)
+        private bool IsValidRoomPosition(DraggableRoomUI room, Vector2Int newPos)
         {
             if (room?.RoomDefiner?.Definition?.Shape == null || currentDungeon == null)
                 return false;
@@ -157,7 +174,7 @@ namespace Scripts.Dungeon
 
             foreach (var coord in shapeCoordinates)
             {
-                var absolutePos = newStartPosition + coord;
+                var absolutePos = newPos + coord;
 
                 if (absolutePos.x < 0 || absolutePos.x >= dungeonBounds.x ||
                     absolutePos.y < 0 || absolutePos.y >= dungeonBounds.y)
@@ -177,7 +194,7 @@ namespace Scripts.Dungeon
 
                 foreach (var coord in shapeCoordinates)
                 {
-                    var absolutePos = newStartPosition + coord;
+                    var absolutePos = newPos + coord;
 
                     foreach (var otherPos in otherPositions)
                         if (absolutePos == otherPos)
@@ -185,7 +202,7 @@ namespace Scripts.Dungeon
                 }
             }
 
-            return true;
+            return !(Vector2Int.Distance(newPos, room.CurrentGridPosition) > 1);
         }
 
     }

@@ -17,14 +17,12 @@ namespace Scripts.Dungeon
             float tileSize = controller.TileSize;
 
             draggableRoomUI.RoomDefiner = roomDefiner;
-            draggableRoomUI.CurrentGridPosition = roomDefiner.Definition.StartPosition;
-            draggableRoomUI.Initialize(controller);
+            draggableRoomUI.RoomDefiner.Definition.SetPosition(roomDefiner.Definition.StartPosition);
 
             //make background transparent but still receive events
             if (backgroundImage != null)
                 backgroundImage.color = new Color(0, 0, 0, 0);
 
-            //create tiles using RELATIVE coordinates (ShapeCoordinates, not CoordinatesAsPosition)
             var tileCoords = roomDefiner.Definition.Shape.ShapeCoordinates;
             foreach (var coord in tileCoords)
             {
