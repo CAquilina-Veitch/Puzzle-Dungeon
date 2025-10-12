@@ -45,7 +45,7 @@ namespace Scripts.Dungeon
             currentTestingDungeonID = testingDungeonID = id;
             currentDungeon.Value = currentDungeonDefinition;
         }
-
+        
         public void LoadDungeon(DungeonID newID)
         {
             if (currentDungeon.CurrentValue != null && currentDungeon.CurrentValue.DungeonID != DungeonID.None && newID != DungeonID.None)

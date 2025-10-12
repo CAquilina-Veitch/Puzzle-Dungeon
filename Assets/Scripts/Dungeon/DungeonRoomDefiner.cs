@@ -43,7 +43,8 @@ namespace Scripts.Dungeon
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            // Only create new definition if it's completely missing
+            if (Application.isPlaying) return;
+
             if (definition == null)
             {
                 if (roomType != RoomType.None) 
@@ -52,7 +53,6 @@ namespace Scripts.Dungeon
                 return;
             }
 
-            // If Shape is null, just initialize it (don't recreate entire definition)
             if (definition.Shape == null)
             {
                 definition.SetShape(new TileShape());
