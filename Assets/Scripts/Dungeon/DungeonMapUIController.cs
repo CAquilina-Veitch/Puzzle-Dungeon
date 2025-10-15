@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using R3;
 using Runtime.Extensions;
 using Scripts.Behaviours;
@@ -131,8 +132,7 @@ namespace Scripts.Dungeon
             {
                 if (mouseAsGrid == currentlyDraggedRoom.CurrentGridPosition) return;
 
-                LerpPos(mouseAsGrid);
-                currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(mouseAsGrid);
+                StartLerp(mouseAsGrid);
             }
 
             else
@@ -143,21 +143,51 @@ namespace Scripts.Dungeon
                 if (adjacentTileIsValid)
                 {
                     if (adjacentPos == currentlyDraggedRoom.CurrentGridPosition) return;
-
-                    LerpPos(adjacentPos);
-                    currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(adjacentPos);
+                    StartLerp(adjacentPos);
+                    //  currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(adjacentPos);
                 }
             }
             
         }
 
+        private Vector2Int endPosGrid;
+        private Vector2 endPos;
+        private void StartLerp(Vector2Int newTilePos)
+        {
+            currentlyDraggedRoom.RoomDefiner.Definition.SetPosition(endPosGrid);
+
+            var g = GridToUIPosition(newTilePos);
+            if(endPos == g)  return;
+            endPosGrid = newTilePos;
+            endPos = GridToUIPosition(newTilePos);
+            disposable.Disposable = null;
+            Observable.IntervalFrame(1).Subscribe(Lerp).AssignTo(disposable);
+        }
+        private void Lerp()
+        {
+            currentlyDraggedRoom.RectTransform.anchoredPosition = Vector2.Lerp(currentlyDraggedRoom.RectTransform.anchoredPosition, endPos, 0.25f);
+
+            if (Vector2.Distance(currentlyDraggedRoom.RectTransform.anchoredPosition, endPos) < 1f) return;
+            
+            currentlyDraggedRoom.RectTransform.anchoredPosition = endPos;
+            disposable.Disposable = null;
+
+        }
+
+        private readonly SerialDisposable disposable = new SerialDisposable();
+        private float i = 0;
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            disposable.Dispose();
+        }
+
         private void LerpPos(Vector2Int newTilePos)
         {
-            var newPos = GridToUIPosition(newTilePos);
-            
-            currentlyDraggedRoom.RectTransform.anchoredPosition = newPos;
-            
+            /*var newPos = GridToUIPosition(newTilePos);
+            currentlyDraggedRoom.RectTransform.anchoredPosition = newPos;*/
         }
+
 
         public void OnRoomMouseUp()
         {

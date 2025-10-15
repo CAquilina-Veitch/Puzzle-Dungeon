@@ -24,12 +24,16 @@ namespace Scripts.Dungeon
         #if UNITY_EDITOR
         private void OnValidate()
         {
+            if (Application.isPlaying) return;
+            
             if (numRooms != rooms.Length) 
                 HandleRoomDifferences();
         }
 
         private void HandleRoomDifferences()
         {
+            if (Application.isPlaying) return;
+
             if (rooms.Length > numRooms)
             {
                 var seen = new HashSet<DungeonRoomDefiner>();
@@ -40,8 +44,8 @@ namespace Scripts.Dungeon
                     if (room == null || !seen.Add(room))
                     {
                         var obj = Instantiate(new GameObject(), transform);
-                        var comp = obj.AddComponent<DungeonRoomDefiner>();
-                        rooms[i] = comp;
+                        var dungeonRoom = obj.AddComponent<DungeonRoomDefiner>();
+                        rooms[i] = dungeonRoom;
                     }
                 }
             }

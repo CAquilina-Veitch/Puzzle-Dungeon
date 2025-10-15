@@ -24,7 +24,7 @@ namespace Scripts.Dungeon
         private void Reset()
         {
             definition = new EmptyRoomDefinition();
-            transform.name = roomType.ToString();
+            transform.name = $"{transform.name} [{roomType}]";
             editorColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f),1f);
         }
 
@@ -133,7 +133,14 @@ namespace Scripts.Dungeon
             //get new definition
             definition = DungeonRoomDefinitionLibrary.GetDef(roomType);
             lastSelectedRoomType = roomType;
-            transform.name = roomType.ToString();
+
+            //update name: preserve base name, replace bracket suffix
+            string baseName = transform.name;
+            int bracketIndex = baseName.LastIndexOf(" [");
+            if (bracketIndex >= 0)
+                baseName = baseName.Substring(0, bracketIndex);
+
+            transform.name = $"{baseName} [{roomType}]";
 
             //copy preserved data to new definition
             if (definition != null)
