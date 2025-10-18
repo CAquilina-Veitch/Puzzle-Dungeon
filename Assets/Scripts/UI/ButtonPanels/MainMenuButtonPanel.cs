@@ -11,9 +11,7 @@ public class MainMenuButtonPanel : ExclusiveButtonPanel<MainMenuButtonPanel.Main
     [SerializeField] private float cursorPunchScale = 2;
     [SerializeField] private float cursorPunchDuration;
     [SerializeField] private SoundEffectPlayer sfxPlayer;
-
-    [SerializeField] private string MainLevelScene;
-
+    
     public enum MainMenuButtons
     {
         Null,
@@ -43,9 +41,10 @@ public class MainMenuButtonPanel : ExclusiveButtonPanel<MainMenuButtonPanel.Main
             case MainMenuButtons.Continue:
                 break;
             case MainMenuButtons.NewGame:
-                SceneManager.LoadScene(MainLevelScene);
+                SceneManager.Instance.LoadScene(SceneID.Overworld);
                 break;
             case MainMenuButtons.Options:
+                UIManager.Instance.SetUIWindowActive(UIWindow.Options,true);
                 break;
             case MainMenuButtons.Credits:
                 break;

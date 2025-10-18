@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using R3;
 using Scripts.UI.Buttons;
 using UnityEngine;
@@ -7,6 +9,18 @@ public abstract class ExclusiveButtonPanel<T> : MonoBehaviour
 {
     [SerializeField] private List<ValuedUIButton<T>> buttonList;
     [SerializeField] private int defaultHoveredValue = -1;
+
+    private void OnValidate()
+    {
+        var buttonsInChildren = GetComponentsInChildren<ValuedUIButton<T>>().ToList();
+        if (buttonsInChildren.Count <= 0)
+        {
+            Debug.LogWarning($"No buttons found in {gameObject.name}");
+            return;
+        }
+        buttonList = buttonsInChildren.ToList();
+
+    }
 
     private void Awake()
     {
@@ -18,8 +32,6 @@ public abstract class ExclusiveButtonPanel<T> : MonoBehaviour
             button.CurrentButtonState.Where(x => x is ButtonState.Hovered).Skip(1)
                 .Subscribe(_ => OnButtonHovered(button)).AddTo(this);
         }
-
-            
     }
 
     private void OnEnable()
