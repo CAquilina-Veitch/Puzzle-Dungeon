@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Cutscenes;
 using Scripts.UI.Buttons;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,7 @@ public class MainMenuButtonPanel : ExclusiveButtonPanel<MainMenuButtonPanel.Main
         Quit
     }
 
+    public CutsceneStepDefiner def = new();
     protected override void OnButtonPressed(ValuedUIButton<MainMenuButtons> button)
     {
         var buttonPressed = button.Value;
@@ -41,7 +43,10 @@ public class MainMenuButtonPanel : ExclusiveButtonPanel<MainMenuButtonPanel.Main
             case MainMenuButtons.Continue:
                 break;
             case MainMenuButtons.NewGame:
-                SceneManager.Instance.LoadScene(SceneID.Overworld);
+                CutsceneManager.Instance.TryPlayCutscene(CutsceneID.TestCutscene1);
+                
+                
+                //SceneManager.Instance.LoadScene(SceneID.Overworld);
                 break;
             case MainMenuButtons.Options:
                 UIManager.Instance.SetUIWindowActive(UIWindow.Options,true);
