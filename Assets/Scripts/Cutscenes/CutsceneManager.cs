@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Runtime.Extensions;
 using Scripts.Behaviours;
 using UnityEngine;
@@ -10,24 +9,25 @@ namespace Scripts.Cutscenes
     {
         [SerializeField] private SO_CutsceneData[]  cutscenes;
         
-        public readonly RORP<SO_CutsceneData> CurrentActiveCutscene = null;
-        public readonly RORP<bool> IsCutscenePlaying;
+        public readonly RORP<SO_CutsceneData> CurrentActiveCutscene = new(null);
+
+        public readonly RORP<CutsceneCameraInstructions> CutsceneCameraInstructions = new(null);
 
         public void TryPlayCutscene(CutsceneID newCutscene)
         {
-            if (IsCutscenePlaying)
+            Debug.Log($"Playing Cutscene {newCutscene}");
+            if (CurrentActiveCutscene.Get != null)
             {
                 Debug.LogWarning($"Cutscene {CurrentActiveCutscene} was already playing!!!!");
-                IsCutscenePlaying.NewValue = false;
+                CurrentActiveCutscene.Set(null);
                 //stop cutscene
             }
 
             var cutscene = cutscenes.FirstOrDefault(cs => cs.CutsceneID == newCutscene);
-            if (cutscene != null)
-            {
+            if (cutscene != null) 
                 CurrentActiveCutscene.NewValue = cutscene;
-            }
-            
+            else
+                Debug.LogWarning($"Couldn't find cutscene {newCutscene}");
         }
 
         public void ReportFinishedCutscene()

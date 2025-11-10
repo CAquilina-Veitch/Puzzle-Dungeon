@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4277028665434917311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7350535643871116753}
+  - component: {fileID: 5334393119858236937}
+  - component: {fileID: 7912639344211859858}
+  m_Layer: 0
+  m_Name: Custom spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7350535643871116753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277028665434917311}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -208.48969, y: 41.359406, z: -299.48813}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5334393119858236937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277028665434917311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 3.84
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -15.2643175
+      TangentOut:
+        x: 0
+        y: 0
+        z: 15.2643175
+      Rotation:
+        value:
+          x: -0.07272149
+          y: 0.48442417
+          z: 0.09920657
+          w: 0.8661425
+    - Position:
+        x: 125.88969
+        y: 37.740593
+        z: 79.38812
+      TangentIn:
+        x: -0
+        y: -0
+        z: -57.11794
+      TangentOut:
+        x: 0
+        y: 0
+        z: 86.649734
+      Rotation:
+        value:
+          x: 0.079148956
+          y: 0.6111012
+          z: 0.12269305
+          w: 0.77796996
+    - Position:
+        x: 471.00967
+        y: -22.739405
+        z: 54.09813
+      TangentIn:
+        x: 0
+        y: 0
+        z: -37.26358
+      TangentOut:
+        x: 0
+        y: 0
+        z: 37.26358
+      Rotation:
+        value:
+          x: 0.09923074
+          y: 0.5198371
+          z: 0.16462563
+          w: 0.8323587
+    - Position:
+        x: 687.4897
+        y: 24.740593
+        z: 185.48813
+      TangentIn:
+        x: 0
+        y: 0
+        z: -89.62981
+      TangentOut:
+        x: 0
+        y: 0
+        z: 89.62981
+      Rotation:
+        value:
+          x: -0.10612899
+          y: 0.44465816
+          z: 0.07379625
+          w: 0.88632375
+    - Position:
+        x: 792.9897
+        y: 174.1406
+        z: 398.98813
+      TangentIn:
+        x: 0
+        y: 0
+        z: -124.03635
+      TangentOut:
+        x: 0
+        y: 0
+        z: 124.03635
+      Rotation:
+        value:
+          x: -0.17264734
+          y: 0.34540147
+          z: -0.22432314
+          w: 0.8947457
+    - Position:
+        x: 930.6227
+        y: -41.359406
+        z: 514.52844
+      TangentIn:
+        x: -0
+        y: -0
+        z: -28.059341
+      TangentOut:
+        x: 0
+        y: 0
+        z: 28.059341
+      Rotation:
+        value:
+          x: 0.38430333
+          y: 0.38265556
+          z: -0.1791512
+          w: 0.8208474
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!114 &7912639344211859858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277028665434917311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17000ecf23cd463e940e8bb3c922894b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scripts.Cutscenes.CutsceneCameraPlayer
+  dolly: {fileID: 0}

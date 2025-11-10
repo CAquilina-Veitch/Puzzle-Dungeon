@@ -5,31 +5,31 @@ namespace Scripts.Cutscenes
 {
     public class CutscenePlayer : MonoBehaviour
     {
-        private SO_CutsceneData cutscene;
-        private int currentStep;
+        [SerializeField] private SO_CutsceneData currentCutscene;
+        [SerializeField] private int currentStep;
         
-        private void Awake()
+        private void Start()
         {
             CutsceneManager.Instance.CurrentActiveCutscene.Subscribe(OnNewCutscene).AddTo(this);
-            CutsceneManager.Instance.IsCutscenePlaying.Subscribe(OnCutscenePlaying).AddTo(this);
         }
 
         private void OnNewCutscene(SO_CutsceneData newCutscene)
         {
             currentStep = 0;
-        }
+            currentCutscene = newCutscene;
 
-        private void OnCutscenePlaying(bool newIsPlaying)
-        {
+            var newIsPlaying = newCutscene != null;
+            
             if (newIsPlaying)
             {
-                if (currentStep != 0)
-                {
-                    Debug.LogWarning("Cutscene has already been played!");
-                }
+                Debug.Log($"CutscenePlayer - Playing new {newCutscene.CutsceneID}");
+
+                ExecuteCutsceneStep();
             }
             else
             {
+                Debug.LogWarning("Clearing cutscene.");
+                CurrentCutsceneStepDisposable.Clear();
                 if (currentStep == 0)
                 {
                     
@@ -41,5 +41,34 @@ namespace Scripts.Cutscenes
                 }
             }
         }
+
+        private void ExecuteCutsceneStep()
+        {
+            if (currentCutscene == null)
+            {
+                Debug.LogError("CurrentCutscene is null");
+                return;
+            }
+            
+            if (currentStep >= currentCutscene.CutscenesSteps.Count)
+            {
+                Debug.LogWarning($"Reached end of cutscene steps. {currentStep} / {currentCutscene.CutscenesSteps.Count}");
+                return;
+            }
+            var nextStep = currentCutscene.CutscenesSteps[currentStep];
+            Debug.Log($"playing Step {currentStep}, && {nextStep.Type}");
+
+            nextStep.TriggerNextStep(this);
+        }
+
+        public void OnStepFinished()
+        {
+            Debug.Log("StepOncompleteCalled");
+            CurrentCutsceneStepDisposable.Clear();
+            currentStep++;
+            ExecuteCutsceneStep();
+        }
+
+        public CompositeDisposable CurrentCutsceneStepDisposable { get; } = new();
     }
 }

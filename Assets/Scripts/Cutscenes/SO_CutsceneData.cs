@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.Cutscenes
@@ -9,13 +10,25 @@ namespace Scripts.Cutscenes
         public CutsceneID CutsceneID => cutsceneID;
         [SerializeField] private CutsceneID cutsceneID;
         
-        public IReadOnlyList<CutsceneStep> CutscenesSteps => cutscenesSteps;
-        [SerializeField] private List<CutsceneStep> cutscenesSteps = new();
+        public IReadOnlyList<CutsceneStepDefiner> CutscenesSteps => cutscenesSteps;
+        [SerializeField] private List<CutsceneStepDefiner> cutscenesSteps = new();
+
+        private void OnValidate()
+        {
+            #if UNITY_EDITOR
+            if (UnityEditor.EditorApplication.isPlaying) return;
+
+            foreach (var stepDefiner in cutscenesSteps)
+                stepDefiner?.UpdateStepType();
+            #endif
+        }
     }
+    
+    [Serializable]
     public enum CutsceneID
     {
-        None,
-        TestCutscene1,
-        TestCutscene2,
+        None = 0,
+        MainMenuTest1 = 001,
+        Level1Test = 101,
     }
 }

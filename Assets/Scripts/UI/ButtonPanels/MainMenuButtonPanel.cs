@@ -43,8 +43,7 @@ public class MainMenuButtonPanel : ExclusiveButtonPanel<MainMenuButtonPanel.Main
             case MainMenuButtons.Continue:
                 break;
             case MainMenuButtons.NewGame:
-                CutsceneManager.Instance.TryPlayCutscene(CutsceneID.TestCutscene1);
-                
+                CutsceneManager.Instance.TryPlayCutscene(CutsceneID.MainMenuTest1);
                 
                 //SceneManager.Instance.LoadScene(SceneID.Overworld);
                 break;
