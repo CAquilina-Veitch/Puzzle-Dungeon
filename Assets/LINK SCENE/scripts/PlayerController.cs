@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    PlayerControls playerControls;
+    public PlayerControls playerControls;
     public Rigidbody rb;
     public Weapon weapon;
     public PlayerInput Input;
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     //slope handling
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
+
+    //interaction
+    InteractableObject currentInteractable;
     private void Awake()
     {
         Input = GetComponent<PlayerInput>();
@@ -65,7 +69,11 @@ public class PlayerController : MonoBehaviour
  
     public void AirMove()
     {
-        transform.position = transform.position + jumpVector * moveSpeed * Time.deltaTime;
+        //transform.position = transform.position + jumpVector * moveSpeed * Time.deltaTime;
+
+        rb.linearVelocity = new Vector3(jumpVector.x * moveSpeed, rb.linearVelocity.y, jumpVector.z * moveSpeed);
+
+
     }
 
     private bool OnSlope()
@@ -89,13 +97,15 @@ public class PlayerController : MonoBehaviour
         {
             if (OnSlope())
             {
-                transform.position = transform.position + GetSlopeMoveDirection() * moveSpeed * Time.deltaTime;
+                rb.linearVelocity = GetSlopeMoveDirection() * moveSpeed;
                 transform.rotation = Quaternion.LookRotation(rotVector);
             }
             else
             { 
-                transform.position = transform.position + moveVector * moveSpeed * Time.deltaTime;
+               // transform.position = transform.position + moveVector * moveSpeed * Time.deltaTime;
                 transform.rotation = Quaternion.LookRotation(rotVector);
+
+                rb.linearVelocity = moveSpeed * moveVector;
             }
         }
     }
@@ -103,14 +113,66 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)
         { 
-            jumpVector = -jumpVector;
-            rb.linearVelocity = Vector3.zero;
+          jumpVector = -jumpVector * 0.5f;
+          rb.linearVelocity = Vector3.zero;
         }
     }
 
-    public void OnCollisionStay(Collision collision)
+    //interaction handler
+   void SetNewInteractable(InteractableObject newinteractableObject)
     {
-        if (collision.gameObject.layer == 10) jumpVector = -jumpVector;
+        currentInteractable = newinteractableObject;
+        currentInteractable.DisplayInteractable();
+    }
+   void DisableCurrentInteractable()
+    {
+        if(currentInteractable)
+        {
+            currentInteractable.HideInteractable();
+            currentInteractable = null;
+        }
+
+    }
+    
+    
+    
+      private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 11)
+        {
+            InteractableObject newinteractableObject = other.GetComponent<InteractableObject>();
+
+            if(currentInteractable && newinteractableObject != currentInteractable)
+            {
+                currentInteractable.HideInteractable();
+            }
+            if(newinteractableObject.enabled)
+            {
+                SetNewInteractable(newinteractableObject);
+            }
+            else //not enabled
+            {
+                DisableCurrentInteractable();
+            }
+        }        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 11) DisableCurrentInteractable();
+    }
+
+
+    public void OnInteract()
+    {
+        if (currentInteractable != null)
+        {
+            currentInteractable.Interact();
+            if (currentInteractable.singleUse == true)
+            {
+                currentInteractable = null;
+            }
+        } 
+           
     }
 
 
