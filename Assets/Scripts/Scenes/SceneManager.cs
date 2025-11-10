@@ -6,19 +6,12 @@ using UnityEngine.SceneManagement;
 using SM = UnityEngine.SceneManagement.SceneManager;
 using Eflatun.SceneReference;
 
-public enum SceneID
-{
-    None = 0,
-    MainMenu = 1,
-    Overworld = 2,
-    Dungeon = 3,
-}
 public class SceneManager : SingletonBehaviour<SceneManager>
 {
     [SerializeField] private EnumPair<SceneID, SceneReference>[] scenes = { };
 
-    private Scene? currentScene;
-
+    public readonly RORP<Scene?> CurrentScene = new(null);
+    
     protected override void OnAwake()
     {
         SM.sceneLoaded += OnSceneLoaded;
@@ -28,9 +21,9 @@ public class SceneManager : SingletonBehaviour<SceneManager>
     {
         if(sceneID != SceneID.None)
         {
-            if(currentScene != null)
-                SM.UnloadSceneAsync(currentScene.Value);
-            currentScene = null;
+            if(CurrentScene.Get != null)
+                SM.UnloadSceneAsync(CurrentScene.Get.Value);
+            CurrentScene.NewValue = null;
             return;
         }
         var scene = scenes.FirstOrDefault(s => s.enumKey == sceneID);
@@ -45,8 +38,8 @@ public class SceneManager : SingletonBehaviour<SceneManager>
 
     private void OnSceneLoaded(Scene newScene, LoadSceneMode mode)
     {
-        if(currentScene != null)
-            SM.UnloadSceneAsync(currentScene.Value);
-        currentScene = newScene;
+        if(CurrentScene.Get != null)
+            SM.UnloadSceneAsync(CurrentScene.Get.Value);
+        CurrentScene.NewValue = newScene;
     }
 }

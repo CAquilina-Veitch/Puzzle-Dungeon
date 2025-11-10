@@ -8,8 +8,8 @@ namespace Runtime.Extensions
     /// </summary>
     public class RORP<T>
     {
-        private RORP() => rp = new ReactiveProperty<T>(default);
-        private RORP(T initial) => rp = new ReactiveProperty<T>(initial);
+        public RORP() => rp = new ReactiveProperty<T>(default);
+        public RORP(T initial) => rp = new ReactiveProperty<T>(initial);
         private readonly ReactiveProperty<T> rp = new();
         public ReadOnlyReactiveProperty<T> RP => rp;
         public T NewValue
@@ -17,7 +17,7 @@ namespace Runtime.Extensions
             set => rp.Value = value;
         }
         public void Set(T newValue) => rp.Value = newValue;
-        private T Get => rp.CurrentValue;
+        public T Get => rp.CurrentValue;
         public static implicit operator T(RORP<T> rorp) => rorp.Get;
         public static implicit operator ReadOnlyReactiveProperty<T>(RORP<T> rorp) => rorp.RP;
         public static implicit operator RORP<T>(T value) => new(value);

@@ -1,63 +1,77 @@
 ﻿using System;
+using R3;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Scripts.Cutscenes
 {
     [Serializable]
-    public class CutsceneStepDefiner
+    public abstract class CutsceneStep
     {
-        [Serializable]public enum StepType
-        {
-            None,
-            CameraMove,
-            WaitForUser,
-        }
-        public CutsceneStep Step => step;
-        private CutsceneStep step;
+        [SerializeField] private string stepName = "Step";
 
-        [SerializeField] private StepType stepType;
-        private StepType cachedStepType;
-        
-        
-        private void OnValidate()
+        public abstract Observable<Unit> OnComplete { get; }
+        public abstract void StartStep();
+    }
+    
+    [Serializable]
+    public class CutsceneStepCameraMove : CutsceneStep
+    {
+        [SerializeField] private SplineContainer splineContainer;
+        [SerializeField] private SpeedKeyframe[] speedKeyframes;
+
+        public override Observable<Unit> OnComplete =>
+            CutsceneManager.Instance.CutsceneCameraInstructions
+                .RP
+                .Skip(1)
+                .Select(inst => inst == null)
+                .Where(isNull => isNull)
+                .Select(x => Unit.Default);
+
+        public override void StartStep()
         {
-            if (stepType != cachedStepType)
+            var instructions = new CutsceneCameraInstructions
             {
-                cachedStepType = stepType;
-                switch (stepType)
-                {
-                    case StepType.None:
-                        step = null;
-                        break;
-                    case StepType.CameraMove:
-                        step = new CameraMoveCutsceneStep();
-                        break;
-                    case StepType.WaitForUser:
-                        step = new WaitForUserCutsceneStep();
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
+                splineContainer = splineContainer,
+                speedKeyframes = speedKeyframes
+            };
+            var instructionRORP = CutsceneManager.Instance.CutsceneCameraInstructions;
+            instructionRORP.Set(instructions);
         }
     }
+    
     [Serializable]
-    public class CutsceneStep
+    public class CutsceneStepWaitForUser : CutsceneStep
     {
+        public override Observable<Unit> OnComplete { get; }
+
+        public override void StartStep()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    
+    [Serializable]
+    public class CutsceneStepDialogue : CutsceneStep
+    {
+        public override Observable<Unit> OnComplete { get; }
+
+        public override void StartStep()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    [Serializable]
+    public class CutsceneStepLoadScene : CutsceneStep
+    {
+        [SerializeField] public SceneID id;
+        public override Observable<Unit> OnComplete => SceneManager.Instance.CurrentScene.RP.Select(x => Unit.Default);
+
+        public override void StartStep()
+        {
+            SceneManager.Instance.LoadScene(id);
+        }
         
     }
-    
-    [Serializable]
-    public class CameraMoveCutsceneStep : CutsceneStep
-    {
-        [SerializeField] private string CameraTest;
-    }
-    
-    [Serializable]
-    public class WaitForUserCutsceneStep : CutsceneStep
-    {
-        [SerializeField] private string WaitTest;
-
-    }
-    
 }
