@@ -16,8 +16,8 @@ TagManager:
   - playerAttack
   - PlayerHurtbox
   - wall
-  - 
-  - 
+  - Interactable
+  - used
   - 
   - 
   - 
