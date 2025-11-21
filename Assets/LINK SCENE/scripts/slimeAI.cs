@@ -1,9 +1,11 @@
 using System.Collections;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
-public class slimeAI : MonoBehaviour
+
+public class slimeAI : Enemy
 {
     private Rigidbody rb;
     public NavMeshAgent agent;
@@ -13,8 +15,11 @@ public class slimeAI : MonoBehaviour
     public float health, kbStrength, delay;
     private BoxCollider colliderBox;
     private Animator animator;
-    
-private void Awake()
+
+    public bool playerInSight;
+    public float sightRange;
+
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player").transform;
@@ -24,7 +29,12 @@ private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        colliderBox = GetComponent<BoxCollider>();      
+        colliderBox = GetComponent<BoxCollider>();
+        base.Start();
+    }
+    public override void dropItems()
+    {
+        throw new NotImplementedException();
     }
     private void ChasePlayer()
     {
@@ -43,7 +53,8 @@ private void Awake()
     {       
         colliderBox.enabled = false;
         animator.SetTrigger("dead");
-        Invoke("DeSpawn", 2f);
+        reportDeath();
+        Invoke("DeSpawn", 2f);        
     }
 
     private void DeSpawn()
@@ -68,7 +79,10 @@ private void Awake()
     }
     void Update()
     {
-       if (health > 0) ChasePlayer();
+       playerInSight = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+
+
+       if (health > 0 && playerInSight) ChasePlayer();
        if (health == 0) agent.SetDestination(transform.position);
     }
 }

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float playerheight;
     public LayerMask whatIsGround;
 
+    public bool onWall;
     //slope handling
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
@@ -41,14 +42,19 @@ public class PlayerController : MonoBehaviour
         playerControls.Enable();
         weapon = GetComponentInChildren<Weapon>();
     }
-
+    #region PlayerControls
     private void OnAttack()
     {
-     if (weapon.attacking == false) weapon.attack();
+        if (weapon.attacking == false)
+        {
+            weapon.attack();
+            
+            if (grounded == true) rb.linearVelocity = Vector3.zero;
+        }
     }
     private void OnJump()
     {
-        if (grounded)
+        if (grounded && weapon.attacking == false && onWall == false)
         {
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Force);
         }
@@ -66,14 +72,12 @@ public class PlayerController : MonoBehaviour
             rotVector.z = moveVector.x;
         }
     }
- 
+
+    #endregion
+
     public void AirMove()
-    {
-        //transform.position = transform.position + jumpVector * moveSpeed * Time.deltaTime;
-
+    {    
         rb.linearVelocity = new Vector3(jumpVector.x * moveSpeed, rb.linearVelocity.y, jumpVector.z * moveSpeed);
-
-
     }
 
     private bool OnSlope()
@@ -95,6 +99,12 @@ public class PlayerController : MonoBehaviour
     {
         if (weapon.attacking == false)
         {
+            if (moveVector.x != 0 && moveVector.z != 0)
+            {
+                 onWall = Physics.Raycast(transform.position, moveVector, 0.8f, whatIsGround);
+            }
+            else onWall = Physics.Raycast(transform.position, moveVector, 0.6f, whatIsGround);
+            
             if (OnSlope())
             {
                 rb.linearVelocity = GetSlopeMoveDirection() * moveSpeed;
@@ -102,24 +112,32 @@ public class PlayerController : MonoBehaviour
             }
             else
             { 
-               // transform.position = transform.position + moveVector * moveSpeed * Time.deltaTime;
                 transform.rotation = Quaternion.LookRotation(rotVector);
-
                 rb.linearVelocity = moveSpeed * moveVector;
             }
         }
     }
-    public void OnCollisionEnter(Collision collision)
+    //walls
+      public void OnCollisionEnter(Collision collision)
+       {
+          if (collision.gameObject.layer == 6)
+          {
+             jumpVector = -jumpVector * 0.5f;
+             rb.linearVelocity = Vector3.zero;
+             this.transform.parent = collision.transform;
+        }
+      }
+    public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == 10)
-        { 
-          jumpVector = -jumpVector * 0.5f;
-          rb.linearVelocity = Vector3.zero;
+        if (collision.gameObject.layer == 6)
+        {
+            this.transform.parent = null;
         }
     }
 
-    //interaction handler
-   void SetNewInteractable(InteractableObject newinteractableObject)
+
+    #region interaction
+    void SetNewInteractable(InteractableObject newinteractableObject)
     {
         currentInteractable = newinteractableObject;
         currentInteractable.DisplayInteractable();
@@ -174,7 +192,7 @@ public class PlayerController : MonoBehaviour
         } 
            
     }
-
+    #endregion
 
 
     void Update()
@@ -189,6 +207,9 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(Vector3.down * gravityStrenth);
 
-        if (grounded) jumpVector = moveVector;
+        if (grounded)
+        {
+            jumpVector = moveVector;
+        }
     }
 }
