@@ -242,7 +242,16 @@ MonoBehaviour:
   cursorPunchScale: 1.2
   cursorPunchDuration: 0.2
   sfxPlayer: {fileID: 5260429188125842952}
-  MainLevelScene: GameLevel
+  def:
+    cutsceneStepType: 0
+    cachedCutsceneStepType: 0
+    step:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &5260429188125842952
 MonoBehaviour:
   m_ObjectHideFlags: 0

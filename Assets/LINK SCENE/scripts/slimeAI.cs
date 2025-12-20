@@ -1,5 +1,6 @@
 using System.Collections;
 using System;
+using Scripts.Items;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -54,7 +55,8 @@ public class slimeAI : Enemy
         colliderBox.enabled = false;
         animator.SetTrigger("dead");
         reportDeath();
-        Invoke("DeSpawn", 2f);        
+        Invoke(nameof(DeSpawn), 2f);
+        DroppedItemManager.Instance.SpawnDroppedItem(transform, ItemType.Health);
     }
 
     private void DeSpawn()

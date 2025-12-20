@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Runtime.Extensions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +13,13 @@ public class health : MonoBehaviour
     [SerializeField]
     private float delay;
 
+    public readonly RORP<int> currentHealth = new();
     public Transform enemyPosition;
+
+    private void Awake()
+    {
+        currentHealth.Set((int)hp);
+    }
 
     private void KnockBack()
     {
@@ -32,6 +40,7 @@ public class health : MonoBehaviour
         {
             enemyPosition = collision.transform;
             hp -= 1f;
+            currentHealth.NewValue--;
             KnockBack();
         }
                 
