@@ -36,8 +36,5 @@ public class CameraManager : MonoBehaviour
             if (cameras[i] != currentCam) cameras[i].Priority = 10;
     }
    
-    void Update()
-    {
-        
-    }
+  
 }
