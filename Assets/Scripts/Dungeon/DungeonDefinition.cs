@@ -45,6 +45,7 @@ namespace Scripts.Dungeon
                     {
                         var obj = Instantiate(new GameObject(), transform);
                         var dungeonRoom = obj.AddComponent<DungeonRoomDefiner>();
+                        dungeonRoom.Initialize(i);
                         rooms[i] = dungeonRoom;
                     }
                 }

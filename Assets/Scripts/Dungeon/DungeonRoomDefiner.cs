@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,11 +22,11 @@ namespace Scripts.Dungeon
         [SerializeField, HideInInspector] private Vector2Int[] cachedCoordinates;
         [SerializeField, HideInInspector] private Vector2Int[] lastShapeCoordinates;
 
-        private void Reset()
+        public void Initialize(int roomIndex)
         {
             definition = new EmptyRoomDefinition();
-            transform.name = $"{transform.name} [{roomType}]";
-            editorColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f),1f);
+            transform.name = $"[{roomType}] Room {roomIndex}";
+            editorColour = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
         }
 
         private void Update()
@@ -134,13 +135,9 @@ namespace Scripts.Dungeon
             definition = DungeonRoomDefinitionLibrary.GetDef(roomType);
             lastSelectedRoomType = roomType;
 
-            //update name: preserve base name, replace bracket suffix
-            string baseName = transform.name;
-            int bracketIndex = baseName.LastIndexOf(" [");
-            if (bracketIndex >= 0)
-                baseName = baseName.Substring(0, bracketIndex);
-
-            transform.name = $"{baseName} [{roomType}]";
+            //update name: strip existing [Type] prefix if present, then add new one
+            string baseName = Regex.Replace(transform.name, @"^\[.*?\]\s*", "");
+            transform.name = $"[{roomType}] {baseName}";
 
             //copy preserved data to new definition
             if (definition != null)

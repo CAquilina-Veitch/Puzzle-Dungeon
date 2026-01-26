@@ -8,8 +8,9 @@ public enum UIWindow
     Menu = 10,
     Pause = 11,
     Options = 12,
-    
+
     PlayerUI = 20,
+    DungeonMap = 30,
 }
 public class UIManager : SingletonBehaviour<UIManager>
 {

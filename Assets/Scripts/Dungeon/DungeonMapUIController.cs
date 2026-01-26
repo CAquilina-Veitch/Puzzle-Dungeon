@@ -32,8 +32,13 @@ namespace Scripts.Dungeon
         private DraggableRoomUI currentlyDraggedRoom;
 
 
-        protected override void OnAwake() =>
+        [SerializeField] private GameObject mapRoot;
+
+        protected override void OnAwake()
+        {
             DungeonLayoutManager.Instance.CurrentDungeon.Subscribe(OnCurrentDungeonChanged).AddTo(this);
+            UIManager.Instance.CurrentUIWindows.Select(windows=> windows.Contains(UIWindow.DungeonMap)).Subscribe(mapRoot.SetActive).AddTo(this);
+        }
 
         private void OnCurrentDungeonChanged(DungeonDefinition dungeon)
         {

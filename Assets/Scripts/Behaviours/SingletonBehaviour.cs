@@ -1,3 +1,5 @@
+using R3;
+using Runtime.Extensions;
 using UnityEngine;
 
 namespace Scripts.Behaviours
@@ -46,8 +48,8 @@ namespace Scripts.Behaviours
             _instance = this as T;
             
             if (DontDestroyOnLoad && transform.parent == null) DontDestroyOnLoad(gameObject);
-            
-            OnAwake();
+
+            Observable.TimerFrame(1).Subscribe(OnAwake).AddTo(this);
         }
         
         /// <summary>
