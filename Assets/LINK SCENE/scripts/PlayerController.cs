@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerControls playerControls;
+    public PlayerInput controller;
     public Rigidbody rb;
     public Weapon weapon;
     public PlayerInput Input;
@@ -30,16 +30,16 @@ public class PlayerController : MonoBehaviour
 
     //interaction
     InteractableObject currentInteractable;
+
     private void Awake()
     {
         Input = GetComponent<PlayerInput>();
     }
     void Start()
     {
-        playerControls = new PlayerControls();
+        controller = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        playerControls.Enable();
         weapon = GetComponentInChildren<Weapon>();
     }
     #region PlayerControls
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region MovementHandling
     public void AirMove()
     {    
         rb.linearVelocity = new Vector3(jumpVector.x * moveSpeed, rb.linearVelocity.y, jumpVector.z * moveSpeed);
@@ -135,6 +136,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #endregion
 
     #region interaction
     void SetNewInteractable(InteractableObject newinteractableObject)
@@ -194,7 +196,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
+   
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerheight * 0.5f + 0.1f, whatIsGround);
